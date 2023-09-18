@@ -37,3 +37,5 @@ Route::post('/studentstore',[StudentController::class,'store'])->name('std.store
 
 Route::patch('/studentupdate/{id}',[StudentController::class,'update'])->name('std.update');
 
+route::get('/studentdelete/{id}',[StudentController::class,'delete'])->name('std.delete');
+

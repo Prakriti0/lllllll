@@ -23,8 +23,14 @@
   </div>
   <div class="mb-3">
   <label for="exampleInputEmail1" class="form-label">Address</label>
-  <textarea class="form-control" name="address"></textarea>
-    
+  <textarea class="form-control" name="address"></textarea> 
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Gender:</label> <br>
+    <input type="radio" name="gender" value="male" id="exampleInputPassword1">male
+    <input type="radio" name="gender"  value="female"  id="exampleInputPassword1">female
+    <input type="radio" name="gender" value="others"  id="exampleInputPassword1">others
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 {{Form::close() }}

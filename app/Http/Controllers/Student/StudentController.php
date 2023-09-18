@@ -29,6 +29,7 @@ class studentController extends Controller
         $student->Email = $request->email;
         $student->phone= $request->phone;
         $student->address = $request->address;
+        $student->gender= $request->gender;
         $student->save();
         return back();
     }
@@ -40,8 +41,14 @@ class studentController extends Controller
         $id->Email = $request->email;
         $id->phone= $request->phone;
         $id->address = $request->address;
+        $id->gender = $request->gender;
         $id->save();
         return back();   
+    }
+
+    public function delete(student $id){
+        $id->delete();
+        return back();
     }
 }
 

@@ -8,6 +8,7 @@
               <th scope="col">phone</th>
               <th scope="col">Email</th>
               <th scope="col">Address</th>
+              <th scope="col">Gender</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -20,6 +21,7 @@
               <td>{{$std->phone}}</td>
               <td>{{$std->Email}}</td>
               <td><textarea>{{$std->address}}</textarea></td>
+              <td>{{$std->gender}}</td>
               <td>
 
                 <!-- Button trigger modal -->
@@ -55,18 +57,32 @@
   <label for="exampleInputEmail1" class="form-label">Address</label>
   <textarea class="form-control" name="address" >{{$std->address}}</textarea>  
   </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Gender:</label> <br>
+    @if($std->gender == "male")
+    <input type="radio" name="gender" value="male" checked id="exampleInputPassword1">male
+    <input type="radio" name="gender"  value="female"  id="exampleInputPassword1">female
+    <input type="radio" name="gender" value="others" id="exampleInputPassword1">others
+   
+    @elseif($std->gender == "female")
+    <input type="radio" name="gender" value="male"  id="exampleInputPassword1">male
+    <input type="radio" name="gender"  value="female" checked  id="exampleInputPassword1">female
+    <input type="radio" name="gender" value="others" id="exampleInputPassword1">others
+    @else
+    <input type="radio" name="gender" value="male"  id="exampleInputPassword1">male
+    <input type="radio" name="gender"  value="female"   id="exampleInputPassword1">female
+    <input type="radio" name="gender" value="others" checked id="exampleInputPassword1">others
+    @endif
+  </div>
+ 
   <button type="submit" class="btn btn-primary">Submit</button>
 {{Form::close() }}
       </div>
     </div>
   </div>
-</div>
-
-
-
-
-                
-                <button class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></button>
+</div>                
+    <a href="{{route('std.delete', $std->id)}}" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></a>
               </td>
             </tr>
             @endforeach
