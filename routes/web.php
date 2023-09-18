@@ -34,3 +34,6 @@ route::get('/addstudent',[StudentController::class,'add'])->name('add.s');
 route::get('/liststudent',[StudentController::class,'list'])->name('list.s');
 
 Route::post('/studentstore',[StudentController::class,'store'])->name('std.store');
+
+Route::patch('/studentupdate/{id}',[StudentController::class,'update'])->name('std.update');
+

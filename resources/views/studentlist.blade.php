@@ -36,7 +36,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        {{Form::open(['route' => 'std.store','method'=>'Post']) }} 
+        {{Form::open(['route' => ['std.update', $std->id],'method'=>'PATCH'])}} 
     <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
     <input type="text" name="name" value="{{$std->name}}"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
