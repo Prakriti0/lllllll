@@ -6,9 +6,10 @@
               <th scope="col">S.N</th>
               <th scope="col">name</th>
               <th scope="col">phone</th>
-              <th scope="col">Email</th>
+              <th colspan="2">Email</th>
               <th scope="col">Address</th>
               <th scope="col">Gender</th>
+              <th scope="col">Images</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -19,9 +20,12 @@
               <th scope="row">{{$i++}}</th>
               <td>{{$std->name}}</td>
               <td>{{$std->phone}}</td>
-              <td>{{$std->Email}}</td>
+              <td colspan="2">{{$std->Email}}</td>
               <td><textarea>{{$std->address}}</textarea></td>
               <td>{{$std->gender}}</td>
+              <td>
+                <img src="{{asset('images/'.$std->image)}}" height="40px;">
+              </td>
               <td>
 
                 <!-- Button trigger modal -->
@@ -57,7 +61,6 @@
   <label for="exampleInputEmail1" class="form-label">Address</label>
   <textarea class="form-control" name="address" >{{$std->address}}</textarea>  
   </div>
-
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Gender:</label> <br>
     @if($std->gender == "male")
@@ -87,6 +90,7 @@
             </tr>
             @endforeach
           </tbody>
+          
         </table>
   </div>
 @include('footer')

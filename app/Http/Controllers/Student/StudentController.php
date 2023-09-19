@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Student;
-
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -24,7 +23,11 @@ class studentController extends Controller
 
     public function store(Request $request)
     {
+        // @dd($request);
         $student = new Student();
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);  
+        $student->image = $imageName;
         $student->name = $request->name;
         $student->Email = $request->email;
         $student->phone= $request->phone;
