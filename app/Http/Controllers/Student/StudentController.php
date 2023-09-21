@@ -40,6 +40,16 @@ class studentController extends Controller
     public function update(request $request,student $id)
     {
         //dd($id);
+        if(!empty($request->oldimage)){
+            unlink(public_path('images/'. $request->oldimage));
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName); 
+        }
+        else{
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName); 
+        }
+        $id->image = $imageName;
         $id->name = $request->name;
         $id->Email = $request->email;
         $id->phone= $request->phone;
@@ -50,6 +60,10 @@ class studentController extends Controller
     }
 
     public function delete(student $id){
+        if(!empty($id->image)){
+            unlink(public_path('images/'. $id->image));
+            
+        }
         $id->delete();
         return back();
     }

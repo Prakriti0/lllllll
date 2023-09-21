@@ -42,7 +42,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        {{Form::open(['route' => ['std.update', $std->id],'method'=>'PATCH'])}} 
+        {{Form::open(['route' => ['std.update', $std->id],'method'=>'PATCH','enctype'=>'multipart/form-data'])}} 
     <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
     <input type="text" name="name" value="{{$std->name}}"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -61,6 +61,16 @@
   <label for="exampleInputEmail1" class="form-label">Address</label>
   <textarea class="form-control" name="address" >{{$std->address}}</textarea>  
   </div>
+  <div class="mb-3">
+    <input type="hidden" name="old image" value="{{$std->image}}" >
+    <img src="{{asset('images/'.$std->image)}}" height="50px">
+
+  </div>
+  <div class="mb-3">
+    <label for="disabledTextInput" class="form-label">Upload new image</label> <br>
+    <input type="file" id="disabledTextInput" name="image" >
+  </div>
+
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Gender:</label> <br>
     @if($std->gender == "male")
